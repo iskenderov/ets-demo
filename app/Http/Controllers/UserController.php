@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
 
+/**
+ * Class UserController
+ * @package App\Http\Controllers
+ */
 class UserController extends Controller
 {
     /**
@@ -23,8 +27,8 @@ class UserController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @return \Illuminate\Http\Response
+     * @param UserRequest $request
+     * @return mixed
      */
     public function store(UserRequest $request)
     {
@@ -32,11 +36,12 @@ class UserController extends Controller
         return $user;
     }
 
+
     /**
      * Display the specified resource.
      *
-     * @param  \App\User $user
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return mixed
      */
     public function show($id)
     {
@@ -47,9 +52,9 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  \App\User $user
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(Request $request, $id)
     {
@@ -59,11 +64,12 @@ class UserController extends Controller
         return response()->json($user);
     }
 
+
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\User $user
-     * @return \Illuminate\Http\Response
+     * @param $id
+     * @return \Illuminate\Contracts\Routing\ResponseFactory|\Symfony\Component\HttpFoundation\Response
      */
     public function destroy($id)
     {
